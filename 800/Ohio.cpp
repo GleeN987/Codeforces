@@ -1,30 +1,26 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
-        string word;
-        cin >> word;
-
-        bool hasConsecutive = false;
-        for (int j = 0; j < word.size() - 1; j++) {
-            if (word[j] == word[j + 1]) {
-                hasConsecutive = true;
-                break; // Exit the loop as we found a consecutive pair
+    string s;
+    for(int i = 0; i<n; i++){
+        bool reduce = false;
+        cin >> s;
+        for(int i = 0; i<s.size()-1;i++){
+            if(s[i]==s[i+1]){
+                reduce = true;
             }
         }
-
-        // Print 1 if there's a match, otherwise print the word's size
-        if (hasConsecutive) {
-            cout << 1 << endl;
-        } else {
-            cout << word.size() << endl;
+        if(reduce){
+            cout << 1 << '\n';
+        }
+        else{
+            cout << s.size() << '\n';
         }
     }
 
-    return 0;
+
 }
